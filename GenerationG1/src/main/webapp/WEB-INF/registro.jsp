@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 
 <!DOCTYPE html>
 <html>
@@ -9,27 +12,28 @@
 </head>
 <body>
 	<div>
-		<!-- Pasar informacion desde una vista a una URL (action) -->
-		<!-- Por defaul el metodo get, los parametros se ven en la ruta -->
-		<!-- Por defaul el metodo post, los parametros no se ven permanecen ocultos -->
-		<form action="/registro/usuario" method="Post"
-			style="text-align: center">
-			<label for="nombre">Nombre: </label>
-			<!-- Etiqueta para captar informacion -->
-			<input type="text" id="nombre" name="nombre"> <br>
-			<!--  salto de linea -->
-			<label for="apellido">Apellido: </label>
-			<!-- el ford: para relacionar el nombre y marcar input automaticamente -->
-			<input type="text" id="apellido" name="apellido"> <br>
-			<!--  salto de linea -->
-			<label for="edad">Edad: </label>
-			<!-- el ford: para relacionar el nombre y marcar input automaticamente -->
-			<input type="number" id="edad" name="edad"> <br>
-			<!-- submit para el envio de informacion -->
+	<!--  en caso de que exita un error enviamos parametro msgError con el texto -->
+		<c:if test="${msgError!= null }">
+			<c:out value="${msgError }"></c:out>
+		</c:if>
+
+
+		<!-- Estructura para cuando trabajemos con formularios -->
+		<form:form action="/registro/usuario" method="post"
+			modelAttribute="usuario">
+			<form:label path="nombre">Nombre:</form:label>
+			<form:input path="nombre" />
+			<br>
+			<form:label path="apellido">Apellido:</form:label>
+			<form:input path="apellido" />
+			<br>
+			<form:label path="edad">Edad:</form:label>
+			<form:input type="number" path="edad" />
+			<br>
+			<form:label path="password">Contraseña</form:label>
+			<form:input path="password" />
 			<input type="submit" value="Registrar">
-			<!-- simplemente un botton de momento no hace nada -->
-			<input type="button" value="Enviar">
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>

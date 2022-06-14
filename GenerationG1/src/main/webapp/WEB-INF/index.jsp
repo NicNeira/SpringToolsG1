@@ -17,8 +17,8 @@
 <body>
 
 	<h1 style="text-align: center; color: red;">
-		<c:out value="${nombres}"></c:out>
-		<c:out value=" ${apellidos}"></c:out>
+		<c:out value="${usuario.getNombre()}"></c:out>
+		<c:out value=" ${usuario.getApellido()}"></c:out>
 	</h1>
 	<!-- $ = place holder -->
 	<h2 style="text-align: center">

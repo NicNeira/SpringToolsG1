@@ -18,7 +18,7 @@ public class IndexController {
 		model.addAttribute("edad", 27);
 
 		// Instancia de usuario
-		Usuario usuario = new Usuario("Alan", "Brito", 20);
+		Usuario usuario = new Usuario("Alan", "Brito", 20, "Alan123");
 
 		// pasando el objeto usuario a la vista (JSP)
 		model.addAttribute("usuario", usuario);
