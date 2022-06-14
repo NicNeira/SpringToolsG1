@@ -1,0 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<!--  La biblioteca de etiquetas estándar de JSP (JSTL) 
+	representa un conjunto de etiquetas para simplificar el 
+	desarrollo de JSP.  -->
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Nicolas Neira</title>
+</head>
+<body>
+	<h1>
+		<c:out value="${nombres}"></c:out>
+	</h1>
+
+	<h2>
+		<c:out value="${apellidos}"></c:out>
+	</h2>
+	<!-- $ = place holder -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+package com.generation.controllers;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController // Importar clase de tipo controlador
+public class IndexController {
+
+	// http://localhost:9080/
+	@RequestMapping("/") // Anotacion para capturar las rutas
+	public String index() {
+
+		return "index.jsp";
+
+	}
+}
