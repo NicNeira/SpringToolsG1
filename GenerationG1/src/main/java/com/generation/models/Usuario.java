@@ -43,15 +43,21 @@ public class Usuario {
 		this.edad = edad;
 		this.password = password;
 	}
+	
 
 	// Geter and setters
-	public Usuario(Long id) {
-		super();
-		this.id = id;
-	}
+	
 
 	public String getNombre() {
 		return nombre;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setNombre(String nombre) {

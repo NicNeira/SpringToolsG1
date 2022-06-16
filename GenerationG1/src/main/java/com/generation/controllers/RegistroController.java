@@ -1,5 +1,7 @@
 package com.generation.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +64,12 @@ public class RegistroController {
 		// enviar el objeto al service
 		usuarioService.saveUsuario(usuario);
 
-		return "index.jsp"; // pagina a desplegar
+		// obtener una lista de usuario
+		List<Usuario> listaUsuarios = usuarioService.findAll();
+		// Pasamos la lista de usuario al jsp
+		model.addAttribute("usuariosCapturados", listaUsuarios);
+		
+		return "listaUsuario.jsp"; // pagina a desplegar
 
 	}
 
