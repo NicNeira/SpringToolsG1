@@ -10,4 +10,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long > { //Jpa
 	/*Las interface solo definen los metodos*/
 	/*Aqui nosotros ejecutamos las query y usar metodos que se conectan a la base de datos*/
 	
-}
+} 

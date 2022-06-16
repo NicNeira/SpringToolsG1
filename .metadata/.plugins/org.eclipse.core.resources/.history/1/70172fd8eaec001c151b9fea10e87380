@@ -1,0 +1,16 @@
+package com.generation.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class UsuarioService {
+
+	public static void saveUsuario() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/* Logica de negocio o validaciones del sistema */
+	/* Llamar al repository  (Inyeccion de dependencia)*/
+	
+}

@@ -20,7 +20,7 @@
 
 		<!-- Estructura para cuando trabajemos con formularios -->
 		<form:form action="/registro/usuario" method="post"
-			modelAttribute="usuario">
+			modelAttribute="usuario" autocomplete="off">
 			<form:label path="nombre">Nombre:</form:label>
 			<form:input path="nombre" />
 			<br>
@@ -31,7 +31,8 @@
 			<form:input type="number" path="edad" />
 			<br>
 			<form:label path="password">Contraseña</form:label>
-			<form:input path="password" />
+			<form:input type="password" path="password" />
+			<br>
 			<input type="submit" value="Registrar">
 		</form:form>
 	</div>
