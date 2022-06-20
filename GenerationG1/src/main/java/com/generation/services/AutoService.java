@@ -31,18 +31,21 @@ public class AutoService {
 
 	public Auto buscarId(Long id) {
 		// metodo para buscar el id del objeto auto
-		return autoRepository.findById(id).get(); //.get especifica el tipo de dato que necesitamos (En este caso auto)
+		return autoRepository.findById(id).get(); // .get especifica el tipo de dato que necesitamos (En este caso auto)
 	}
 
-	public void eliminarAuto(@Valid Auto auto) {
-		// Metodo para eliminar auto ya ingresado
+	public void eliminarAuto(@Valid Long id) {
+		// Metodo para eliminar auto selecionado
+		
+		autoRepository.deleteById(id);
+	
 
 	}
 
 	public void guardarAuto(@Valid Auto auto) {
 		// funcion que guarda el auto actualizado
 		autoRepository.save(auto);
-		
+
 	}
 
 }

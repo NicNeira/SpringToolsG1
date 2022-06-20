@@ -66,41 +66,41 @@ public class RegistroAutoController {
 
 		return "registroAuto.jsp"; // pagina a desplegar
 	}
-	
-	//@RequestMapping Anotación que se encarga de relacionar un método con una petición http.
-	@RequestMapping("/editar/{id}") //Editar para el despliege
-	//@PathVariable para configurar variables dentro de los propios segmentos de la URL
-	public String editarAuto(@PathVariable("id") Long id,
-			Model model) {
-		//Para mostrar que se esta recibiendo el id
+
+	// @RequestMapping Anotación que se encarga de relacionar un método con una
+	// petición http.
+	@RequestMapping("/editar/{id}") // Editar para el despliege
+	// @PathVariable para configurar variables dentro de los propios segmentos de la
+	// URL
+	public String editarAuto(@PathVariable("id") Long id, Model model) {
+		// Para mostrar que se esta recibiendo el id
 		System.out.println("El id es: " + id);
-		
-		
+
 		Auto auto = autoService.buscarId(id);
-		//El Model es para pasar algo al jsp
+		// El Model es para pasar algo al jsp
 		model.addAttribute("auto", auto);
 
 		return "editarAuto.jsp";
-		//return "redirect;/autoTuneado/mostrar"; // redirect para redireccionar a otra url o path
+		// return "redirect;/autoTuneado/mostrar"; // redirect para redireccionar a otra
+		// url o path
 	}
 
-	//localhost:9080/autoTuneado/actualizar/{id} --> //Actualizar para la persistencia en la base de datos
-	
+	// localhost:9080/autoTuneado/actualizar/{id} --> //Actualizar para la
+	// persistencia en la base de datos
+
 	@PostMapping("/actualizar/{id}")
-	public String actualizarAuto(@PathVariable("id") Long id,@Valid @ModelAttribute("auto") Auto auto, 
-			BindingResult resultado, 
-			Model model) {
-		
-		System.out.println("el id a actualizar es: " +id);
-		
+	public String actualizarAuto(@PathVariable("id") Long id, @Valid @ModelAttribute("auto") Auto auto,
+			BindingResult resultado, Model model) {
+
+		System.out.println("el id a actualizar es: " + id);
 
 		if (resultado.hasErrors()) {// capturando si existe un error en el ingreso de datos desde el jsp
 			model.addAttribute("msgError", "Debe realizar ingreso correcto de datos");// Enviar atributo al jsp para que
 																						// muestre que hay un error
 			return "autoTuneado.jsp";
-		}else {
+		} else {
 			auto.setId(id); // --> agregar el id al objeto
-			//enviamos el objeto a persistir en base de datos
+			// enviamos el objeto a persistir en base de datos
 			autoService.guardarAuto(auto);
 			// obtener una lista de autos
 			List<Auto> listaAutos = autoService.findAll();
@@ -109,22 +109,17 @@ public class RegistroAutoController {
 
 			return "registroAuto.jsp"; // pagina a desplegar
 		}
-
-
-		
 	}
 	
-	@PostMapping("/eliminar")
-	public String eliminarAuto(@Valid @ModelAttribute("auto") Auto auto, BindingResult resultado, Model model) { // siempre
+	@RequestMapping("/eliminar/{id}")
+	public String eliminarAuto(@PathVariable("id") Long id) { // siempre
 
 		// Funcion para eliminar el auto ingresado en la tabla
-		autoService.eliminarAuto(auto);
+		autoService.eliminarAuto(id);
 
-		// obtener una lista de autos
-		List<Auto> listaAutos = autoService.findAll();
-		// Pasamos la lista de auto al jsp
-		model.addAttribute("autosCapturados", listaAutos);
-
-		return "registroAuto.jsp"; // pagina a desplegar
+		return "redirect:/autoTuneado/mostrar";
+		
 	}
-}
+
+	}
+

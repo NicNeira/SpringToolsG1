@@ -46,6 +46,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Curso_Java\workSpaceVSCSpringTools\GenerationG1"/>
+			<item value="C:\Curso_Java\workSpaceVSCSpringTools\Mueble"/>
 			<item value="C:\Curso_Java\workSpaceVSCSpringTools\NicolasNeira"/>
 			<item value="C:\Curso_Java\workSpaceVSCSpringTools\nicolas_neira"/>
 		</list>

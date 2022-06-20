@@ -45,7 +45,7 @@
 						<td>${auto.patente}</td>
 						<!--  Se agrega los botones de acciones editar y eliminar con colores gracoas a bootstrap -->
 						<td><a class="btn btn-warning" href="/autoTuneado/editar/${auto.id}" role="button">Editar</a></td>
-						<td><a class="btn btn-danger" href="eliminar/${auto.id}" role="button">Eliminar</a></td>
+						<td><a class="btn btn-danger" href="/autoTuneado/eliminar/${auto.id}" role="button">Eliminar</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
