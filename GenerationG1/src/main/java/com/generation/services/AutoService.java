@@ -15,8 +15,8 @@ public class AutoService {
 	@Autowired
 	AutoRepository autoRepository;
 
-	//Guardar un auto
-	public  void saveAuto(@Valid Auto auto) {
+	// Guardar un auto
+	public void saveAuto(@Valid Auto auto) {
 		// llamar al repossitory (Inyeccion de dependencia)
 
 		// Funcion guardar
@@ -28,8 +28,21 @@ public class AutoService {
 		// Creamos metodo a partir del controller para obtener lista de auto
 		return autoRepository.findAll();
 	}
-	
+
+	public Auto buscarId(Long id) {
+		// metodo para buscar el id del objeto auto
+		return autoRepository.findById(id).get(); //.get especifica el tipo de dato que necesitamos (En este caso auto)
+	}
+
+	public void eliminarAuto(@Valid Auto auto) {
+		// Metodo para eliminar auto ya ingresado
+
+	}
+
+	public void guardarAuto(@Valid Auto auto) {
+		// funcion que guarda el auto actualizado
+		autoRepository.save(auto);
 		
 	}
 
-	
+}

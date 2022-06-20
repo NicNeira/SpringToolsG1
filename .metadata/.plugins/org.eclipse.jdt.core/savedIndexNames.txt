@@ -76,7 +76,6 @@ INDEX VERSION 1.131+C:\Curso_Java\workSpaceVSCSpringTools\.metadata\.plugins\org
 1971036353.index
 746125515.index
 627005414.index
-673779701.index
 1144322002.index
 2939316043.index
 3183615317.index
