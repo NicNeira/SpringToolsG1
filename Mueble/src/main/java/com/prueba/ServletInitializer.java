@@ -1,4 +1,4 @@
-package com.prueba.mueble;
+package com.prueba;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

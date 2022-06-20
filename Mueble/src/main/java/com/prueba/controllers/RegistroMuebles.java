@@ -16,13 +16,20 @@ import com.prueba.models.Mueble;
 import com.prueba.services.MuebleService;
 
 @Controller
-@RequestMapping("/index") //Asiganmos por default la pagina index
+@RequestMapping("") // Asiganmos por default la pagina index
 public class RegistroMuebles {
-	//Inyeccion de dependencia
+	// Inyeccion de dependencia
 	@Autowired
 	MuebleService muebleService;
-	
-	//Ruta para desplegar jsp
+
+	// Ruta para desplegar jsp
+	@RequestMapping("/index")
+	public String inicio(@ModelAttribute("mueble") Mueble mueble,
+			Model model) {
+		System.out.println("Estoy aqui");
+		return "index.jsp";
+	}
+
 	@PostMapping("/guardar")
 	public String guardarMueble(@Valid @ModelAttribute("mueble") Mueble mueble, BindingResult resultado, Model model) { // siempre
 
@@ -31,7 +38,6 @@ public class RegistroMuebles {
 																						// muestre que hay un error
 			return "index.jsp";
 		}
-
 
 		// enviar el objeto al service
 		muebleService.saveMueble(mueble);

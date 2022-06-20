@@ -22,9 +22,9 @@
 		<c:if test="${msgError!= null }">
 			<c:out value="${msgError }"></c:out>
 		</c:if>
-		
-		<form:form action="/index/guardar" method="post"
-			modelAttribute="auto" autocomplete="off">
+
+		<form:form action="/guardar" method="post" modelAttribute="mueble"
+			autocomplete="off">
 			<form:label path="tipoMueble" class="form-label">Tipo Mueble:</form:label>
 			<form:input path="tipoMueble" class="form-control" />
 			<br>
@@ -35,7 +35,7 @@
 			<form:input path="color" class="form-control" />
 			<br>
 			<input type="submit" value="Registrar" class="btn btn-primary">
-			
+
 		</form:form>
 	</div>
 </body>
