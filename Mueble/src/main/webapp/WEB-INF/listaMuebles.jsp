@@ -29,6 +29,7 @@
 					<th scope="col">Tipo de mueble</th>
 					<th scope="col">Tipo de madera</th>
 					<th scope="col">Color</th>
+					<th scope="col">Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,11 +41,19 @@
 						<td>${mueble.tipoMueble}</td>
 						<td>${mueble.tipoMadera}</td>
 						<td>${mueble.color}</td>
+						<td><a class="btn btn-warning" href="/actualizar/${mueble.id}" role="button">Editar</a></td>
+						<td><a class="btn btn-danger" href="/eliminar/${mueble.id}" role="button">Eliminar</a></td>
+					
 					</tr>
 				</c:forEach>
+				
 			</tbody>
 		</table>
+		
 	</div>
+	<div class="d-grid gap-2 col-6 mx-auto">
+	<a class="btn btn-success" href="/index" role="button">Registrar</a>
+  </div>
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"

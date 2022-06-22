@@ -35,8 +35,10 @@
 			<form:input path="color" class="form-control" />
 			<br>
 			<input type="submit" value="Registrar" class="btn btn-primary">
-
+			<a class="btn btn-success" href="/mostrarLista" role="button">Mostrar</a>
 		</form:form>
+		
 	</div>
+	
 </body>
 </html>

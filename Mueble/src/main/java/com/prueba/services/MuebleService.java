@@ -26,6 +26,19 @@ public class MuebleService {
 		// Creamos metodo a partir del controller para obtener lista de muebles
 		return muebleRepository.findAll();
 	}
+
+	public void actualizarMueble(@Valid Mueble mueble) {
+		// Metodo para actualizar el elemento con el id seleccionado
+		
+		muebleRepository.save(mueble);
+		
+	}
+
+
+	public Mueble editarMuebleId(Long id) {
+		//metodo para editar mueble ya registrado
+		return muebleRepository.findById(id).get();
+	}
 	
 	
 }
