@@ -5,11 +5,8 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
     <fullyQualifiedTypeName name="java.lang.String"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="javax.validation.constraints.NotNull"/>
-    <fullyQualifiedTypeName name="javax.validation.Valid"/>
     <fullyQualifiedTypeName name="org.springframework.validation.BindingResult"/>
     <fullyQualifiedTypeName name="com.generation.services.UsuarioService"/>
     <fullyQualifiedTypeName name="com.generation.repositories.UsuarioRepository"/>
@@ -31,4 +28,10 @@
     <fullyQualifiedTypeName name="antlr.collections.List"/>
     <fullyQualifiedTypeName name="com.generation.services.AutoService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="javax.validation.Valid"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="net.bytebuddy.agent.builder.AgentBuilder.FallbackStrategy.Simple"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 </qualifiedTypeNameHistroy>

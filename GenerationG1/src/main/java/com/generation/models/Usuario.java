@@ -1,9 +1,18 @@
 package com.generation.models;
 
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -31,6 +40,18 @@ public class Usuario {
 	@Size(min = 6, max = 8)
 	private String password;
 
+	// opcionales, sirven para la gestion de la base dato
+	@Column(updatable = false) // esta columna especifica nunca se va a actualizar atravez del sistema
+	private Date createdAt;// Para saber en que momento fue insertada en la base de datos
+	private Date updatedAt;// Para cuando se actualizo
+
+	// Relaciones OneToOne (1a1)
+	// / restringir o mantener la integridad de la data /
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+
+	// Eager carga automaticamente / lazy cuando cargamos los datos
+	private Licencia licencia;
+
 	// Constructores
 	public Usuario() {
 		super();
@@ -43,10 +64,8 @@ public class Usuario {
 		this.edad = edad;
 		this.password = password;
 	}
-	
 
 	// Geter and setters
-	
 
 	public String getNombre() {
 		return nombre;
@@ -88,9 +107,26 @@ public class Usuario {
 		this.password = password;
 	}
 
+	public Licencia getLicencia() {
+		return licencia;
+	}
+
+	public void setLicencia(Licencia licencia) {
+		this.licencia = licencia;
+	}
+
 	/*
 	 * @Override public String toString() { return "Nombre: " + nombre + " " +
 	 * apellido + " Edad: " + edad + " La password es: " + password; }
 	 */
 
+	@PrePersist
+	protected void onCreate() {
+		this.createdAt = new Date();
+	}
+
+	@PreUpdate
+	protected void onUpdate() {
+		this.updatedAt = new Date();
+	}
 }

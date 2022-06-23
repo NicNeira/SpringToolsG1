@@ -1,9 +1,14 @@
 package com.generation.models;
 
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
 //Auto se convertira en entidad
@@ -22,12 +27,20 @@ public class Auto {
 	private String modelo;
 	private String color;
 	private String patente;
+	
+	//opcionales, sirven para la gestion de la base dato
+	@Column(updatable = false)//esta columna especifica nunca se va a actualizar atravez del sistema
+	private Date createdAt;//Para saber en que momento fue insertada en la base de datos
+	private Date updatedAt;//Para cuando se actualizo
 
 	// Constructores
+	
+	//constructor vacio
 	public Auto() {
 		super();
 	}
 
+	//Constructor con parametros
 	public Auto(Long id, String marca, String modelo, String color, String patente) {
 		super();
 		this.id = id;
@@ -37,6 +50,7 @@ public class Auto {
 		this.patente = patente;
 	}
 
+	//Getter and Setters
 	public Long getId() {
 		return id;
 	}
@@ -77,6 +91,15 @@ public class Auto {
 		this.patente = patente;
 	}
 
-	// Getters and Setters
+	@PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
+    
+    
 
 }

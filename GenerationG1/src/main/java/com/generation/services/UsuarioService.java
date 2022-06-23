@@ -18,14 +18,15 @@ public class UsuarioService {
 
 	public void saveUsuario(@Valid Usuario usuario) {
 		// llamar al repossitory (Inyeccion de dependencia)
-		
-		//Funcion guardar
+
+		// Funcion guardar
 		usuarioRepository.save(usuario);
-		
+
 	}
 
-	public  List<Usuario> findAll() {
-		
+	// Nos trae todos los usuarios
+	public List<Usuario> findAll() {
+
 		return usuarioRepository.findAll();
 	}
 
