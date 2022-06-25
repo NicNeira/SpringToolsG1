@@ -39,6 +39,11 @@ public class MuebleService {
 		//metodo para editar mueble ya registrado
 		return muebleRepository.findById(id).get();
 	}
+
+	//Metodo para eliminar el mueble seleccionado (por id)
+	public void eliminarAuto(Long id) {
+		muebleRepository.deleteById(id);
+	}
 	
 	
 }

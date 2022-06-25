@@ -67,7 +67,7 @@ public class RegistroMuebles {
 		return "listaMuebles.jsp"; // pagina a desplegar
 	}
 
-	@RequestMapping("/editar/{id}") // Editar para el despliege
+	@PostMapping("/editar/{id}") // Editar para el despliege
 	// @PathVariable para configurar variables dentro de los propios segmentos de la
 	// URL
 	public String editarMueble(@PathVariable("id") Long id, Model model) {
@@ -76,12 +76,12 @@ public class RegistroMuebles {
 		// El Model es para pasar algo al jsp
 		model.addAttribute("mueble", mueble);
 
-		return "editarAuto.jsp";
+		return "editarMueble.jsp";
 		// return "redirect;/autoTuneado/mostrar"; // redirect para redireccionar a otra
 		// url o path
 	}
 
-	// Ruta para actualizar el elemento por id
+	// Ruta para actualizar el elemento por id (una vez que estamos en editar)
 	@PostMapping("/actualizar/{id}")
 	public String actualizarMeuble(@PathVariable("id") Long id, @Valid @ModelAttribute("mueble") Mueble mueble,
 			BindingResult resultado, Model model) {
@@ -89,7 +89,7 @@ public class RegistroMuebles {
 		if (resultado.hasErrors()) {// capturando si existe un error en el ingreso de datos desde el jsp
 			model.addAttribute("msgError", "Debe realizar ingreso correcto de datos");// Enviar atributo al jsp para que
 																						// muestre que hay un error
-			return "index.jsp";
+			return "editarMueble.jsp";
 		} else {
 			mueble.setId(id); // --> agregar el id al objeto
 			// enviamos el objeto a persistir en base de datos
@@ -103,4 +103,14 @@ public class RegistroMuebles {
 		}
 	}
 
+	//Eliminar
+	@RequestMapping("/eliminar/{id}")
+	public String eliminarMueble(@PathVariable("id") Long id) { // siempre
+
+		// Funcion para eliminar el auto ingresado en la tabla
+		muebleService.eliminarAuto(id);
+
+		return "redirect:/mostrarLista";
+		
+	}
 }
